@@ -5,7 +5,7 @@ services:
     image: backend-api
     build:
       context: .
-      dockerfile: .backend/Dockerfile
+      dockerfile: ./backend/Dockerfile
     environment:
       NODE_ENV: production
       PORT: 2000
@@ -28,7 +28,7 @@ services:
     image: frontend-app
     build:
       context: .
-      dockerfile: .frontend/Dockerfile
+      dockerfile: ./frontend/Dockerfile
     ports:
       - 3000:3000
     environment:
