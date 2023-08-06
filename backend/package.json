@@ -1,0 +1,24 @@
+{
+  "name": "backend-api",
+  "version": "1.0.0",
+  "description": "Full stack project for technical assignment",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node src/seed.js",
+    "dev": "nodemon src/server.js",
+    "start": "node src/seed.js && node /api/server.js"
+  },
+  "keywords": [],
+  "author": "Ho Yee Hong",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.4.1",
+    "nodemon": "^3.0.1"
+  }
+}

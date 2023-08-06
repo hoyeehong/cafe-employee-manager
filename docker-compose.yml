@@ -1,0 +1,44 @@
+version: '3.4'
+
+services:
+  backend-api:
+    image: backend-api
+    build:
+      context: .
+      dockerfile: .backend/Dockerfile
+    environment:
+      NODE_ENV: production
+      PORT: 2000
+    ports:
+      - 2000:2000
+    networks:
+      - backend-network
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - backend-network
+
+  frontend-app:
+    image: frontend-app
+    build:
+      context: .
+      dockerfile: .frontend/Dockerfile
+    ports:
+      - 3000:3000
+    environment:
+      NODE_ENV: production
+      BACKEND_API_PORT: 2000
+    networks:
+      - backend-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  backend-network:
